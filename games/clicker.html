@@ -1,19 +1,80 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+  <title>Clicker Game</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      background: linear-gradient(135deg, #1e1e2f, #3a3a5a);
+      color: white;
+      margin-top: 60px;
+    }
+
+    h1 {
+      font-size: 40px;
+    }
+
+    #score {
+      font-size: 30px;
+      margin: 20px;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 20px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      margin: 10px;
+      transition: 0.2s;
+    }
+
+    .clickBtn {
+      background: #4CAF50;
+      color: white;
+    }
+
+    .clickBtn:hover {
+      transform: scale(1.1);
+      background: #45a049;
+    }
+
+    .backBtn {
+      background: #444;
+      color: white;
+      font-size: 16px;
+    }
+
+    .backBtn:hover {
+      background: #666;
+    }
+  </style>
+</head>
+
 <body>
 
-<h2>Click the button!</h2>
+<h1>🔥 Clicker Game</h1>
 
-<button onclick="add()">Click me</button>
 <p id="score">Score: 0</p>
+
+<button class="clickBtn" onclick="add()">CLICK ME!</button>
+<br>
+<button class="backBtn" onclick="location.href='../index.html'">⬅ Back to Home</button>
 
 <script>
 let score = 0;
 
 function add() {
   score++;
+
   document.getElementById("score").innerText = "Score: " + score;
+
+  // small fun effect
+  document.body.style.background =
+    "hsl(" + (score * 15 % 360) + ", 60%, 30%)";
 }
 </script>
 
